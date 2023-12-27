@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -22,7 +21,7 @@ def get_sales_data():
         print("Data should be six numbers, seperated by commas.")
         print("Examples: 10, 20, 30, 40, 50, 60\n")
 
-        data_str = input("Enter data here:")
+        data_str = input("Enter data here:\n")
 
         sales_data = data_str.split(',')
 
@@ -48,28 +47,6 @@ def validate_data(values):
         return False
 
     return True
-
-#these two function is no longer in use because
-#the def update_worksheet runs both these fucntions
-#so that we would understand possibility making function shorter
-#and minimal repetion of same code
-# def update_sales_workheet(data):
-#     """
-#     Update sales worksheet, add new row with user list provided
-#     """
-#     print("updatinging sales worksheet\n")
-#     sales_worksheet = SHEET.worksheet("sales")
-#     sales_worksheet.append_row(data)
-#     print("sales worksheet updated successfully.\n")
-
-# def update_surplus_workheet(data):
-#     """
-#     Update surplus worksheet, add new row with user list provided
-#     """
-#     print("updating surplus worksheet\n")
-#     surplus_worksheet = SHEET.worksheet("surplus")
-#     surplus_worksheet.append_row(data)
-#     print("surplus worksheet updated now.\n")
 
 def update_worksheet(data, worksheet):
     """
